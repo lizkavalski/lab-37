@@ -1,21 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Unless, When } from '../if/';
-import { SettingsContext } from '../../context/settings.js';
+//import { SettingsContext } from '../../context/settings.js';
 
 const TodoList = (props) => {
 
   const [page, setPage] = useState(0);
-  const context = useContext(SettingsContext);
+ // const context = useContext(SettingsContext);
 
-  const start = context.maxVisible * page;
-  const end = start + context.maxVisible;
+  const start = props.maxVisible * page;
+  const end = start + props.maxVisible;
   const list = props.list ? props.list.slice(start, end) : [];
 
   return (
     <>
       <ul>
         {list.map(item => (
-          <Unless condition={item.complete && !context.showCompleted}>
+          <Unless condition={item.complete && !props.showCompleted}>
             <li
               className={`complete-${item.complete.toString()}`}
               key={item._id}

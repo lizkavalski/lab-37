@@ -23,9 +23,9 @@ function ToDo (props) {
 
       <section className="todo">
 
-        <div>
+        <span>
           <TodoForm handleSubmit={props.addItem} />
-        </div>
+        </span>
 
         <div>
           <TodoList

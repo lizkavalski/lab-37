@@ -1,38 +1,47 @@
-import React from "react";
-import useForm from '../../hooks/form.js';
+import React, {useState, useEffect} from 'react';
+import uuid from 'uuid/v4';
+import Form from "react-jsonschema-form";
 
-const TodoForm = props => {
+import {connect} from 'react-redux';
 
-  const { handleChange, handleSubmit } = useForm( props.handleSubmit );
+import * as actions from '../../store/todo.store';
+
+const schemaURL = 'https://api-js401.herokuapp.com/api/v1/todo/schema'
+const uiSchema = {
+  _id: { 'ui:widget': 'hidden' },
+  __v: { 'ui:widget': 'hidden' }
+}
+
+function TodoForm(props) {
+
+  const [schema, setSchema] = useState({});
+
+  const addItem = (form) => {
+    console.log(form);
+    form.formData._id = uuid();
+    props.addItem(form.formData);
+  };
+
+  useEffect( () => {
+    fetch( schemaURL )
+     .then(results => results.json() )
+     .then(schemaObject => setSchema(schemaObject))
+  }, []); // [] as a second param means only do this ONCE
+
+  console.log(schema);
 
   return (
-      <>
-        <h3>Add Item</h3>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <span>To Do Item</span>
-            <input
-              name="text"
-              placeholder="Add To Do List Item"
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            <span>Difficulty Rating</span>
-            <input type="range" min="1" max="5" name="difficulty" onChange={handleChange} />
-          </label>
-          <label>
-            <span>Assigned To</span>
-            <input type="text" name="assignee" placeholder="Assigned To" onChange={handleChange} />
-          </label>
-          <label>
-            <span>Due</span>
-            <input type="date" name="due" onChange={handleChange} />
-          </label>
-          <button>Add Item</button>
-        </form>
-      </>
-    );
-};
+    <Form
+      schema={schema}
+      uiSchema={uiSchema}
+      onSubmit={addItem}
+      />
+  )
+}
 
-export default TodoForm;
+const mapDispatchToProps = (dispatch, getState) => ({
+  addItem: () => dispatch(actions.addItem())
+});
+
+
+export default connect(undefined, mapDispatchToProps)(TodoForm);

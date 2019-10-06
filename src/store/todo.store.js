@@ -1,13 +1,12 @@
-import uuid from "uuid/v4";
-
 //reducer
 const initialState = { todoList: [], showDetails: null, details: {} };
 
 export default (state=initialState, action)=> {
-  switch (action.type) {
+    const {payload, type}=action;
+    switch (type) {
     case 'ADD':
       //  return state
-      return { ...state, todoList: [...state.todoList, action.payload] };
+      return { ...state, todoList: [...state.todoList, payload] };
     case 'DELETE':
         return state
     //   return {...state, todoList: state.todoList.filter( item => item._id !== action.payload )};
@@ -26,8 +25,8 @@ export default (state=initialState, action)=> {
 //action
 // if the are issuses try removing the helper functions
 export const addItem = (data) => {
-    data._id = uuid();
-    data.complete = false;
+    // data._id = uuid();
+    // data.complete = false;
     return({type: 'ADD', payload:data});
   };
 
