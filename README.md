@@ -31,5 +31,4 @@ to view app.
 #### Tests
 at this poin t their is no test for this app.
 
-#### UML
-Link to an image of the UML for your application and response to events
+
