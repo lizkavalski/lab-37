@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LAB - 37
 
-## Available Scripts
+## Dynamic Forms
 
-In the project directory, you can run:
+### Author: Liz Kavalski
 
-### `npm start`
+### Links and Resources
+* [submission PR](https://github.com/lizkavalski/lab-37/pull/1)-once being able to render the list onto the page I'll deploy it to another site.
+* [Pratice Lab](https://codesandbox.io/s/lab-37-pratice-0p0uj)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Modules
+#### `todo.js`
+Is a function that reviced infomation(items that needs to be done) from the 'form'
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### `todo-list.js`
+Is a function the retrives infomation from the sever and renders onto the page.(still working on passing infomation from the form to make the list.)
 
-### `npm test`
+#### `forms.js`
+Renders a form using  "react-jsonschema-form" which createes a form using the schema that is stored in the sever. At this point it only add items, but does not render it on the page. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Setup
+a .env is not require for this assignment.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Running the app
+after cloning the git repo and downloading te dependices run:
+* `npm start`
+to view app.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  
+#### Tests
+at this poin t their is no test for this app.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### UML
+Link to an image of the UML for your application and response to events

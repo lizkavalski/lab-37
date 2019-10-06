@@ -26,7 +26,7 @@ function TodoForm(props) {
     fetch( schemaURL )
      .then(results => results.json() )
      .then(schemaObject => setSchema(schemaObject))
-  }, []); // [] as a second param means only do this ONCE
+  }, []); 
 
   console.log(schema);
 
