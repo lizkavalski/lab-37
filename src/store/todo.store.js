@@ -8,15 +8,15 @@ export default (state=initialState, action)=> {
       //  return state
       return { ...state, todoList: [...state.todoList, payload] };
     case 'DELETE':
-        return state
-    //   return {...state, todoList: state.todoList.filter( item => item._id !== action.payload )};
+       // return state
+      return {...state, todoList: state.todoList.filter( item => item._id !== action.payload )};
     case 'TOGGLE':
-        return state
-    //   return { ...state, todoList: state.todoList.map( (item) => item._id === action.payload ? {...item, complete: !item.complete} : item ) };
+        //return state
+      return { ...state, todoList: state.todoList.map( (item) => item._id === action.payload ? {...item, complete: !item.complete} : item ) };
     case 'DETAILS':
-        return state
-    //   let item = state.todoList.filter( item => item._id === action.payload )[0] || {}
-    //   return { ...state, showDetails: !state.showDetails, details: item };
+        //return state
+      let item = state.todoList.filter( item => item._id === action.payload )[0] || {}
+    return { ...state, showDetails: !state.showDetails, details: item };
     default:
      return state;
   }

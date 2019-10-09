@@ -18,7 +18,7 @@ function TodoForm(props) {
 
   const addItem = (form) => {
     console.log(form);
-    form.formData._id = uuid();
+    form.formData.id = uuid();
     props.addItem(form.formData);
   };
 
@@ -31,11 +31,14 @@ function TodoForm(props) {
   console.log(schema);
 
   return (
+    <div>
     <Form
-      schema={schema}
+      schema={this.state.schema}
       uiSchema={uiSchema}
-      onSubmit={addItem}
-      />
+      formData={this.props.Todo[this.props.id]}
+      onSubmit={this.handleSubmit}
+    />
+  </div>
   )
 }
 

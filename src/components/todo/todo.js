@@ -1,10 +1,9 @@
-import React, {useReducer} from "react";
+import React from "react";
 
 import {connect} from 'react-redux';
 
 import * as actions from '../../store/todo.store.js'
 
-import { When } from "../if";
 import TodoForm from "./form.js";
 import TodoList from "./list.js";
 import TodoItem from "./item.js";
@@ -36,10 +35,10 @@ function ToDo (props) {
           />
         </div>
       </section>
-
+{/* 
       <When condition={props.showDetails}>
         <TodoItem handleDetails={props.toggleDetails} item={props.details} />
-      </When>
+      </When> */}
     </>
   );
 };
