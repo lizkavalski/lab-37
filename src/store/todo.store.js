@@ -1,21 +1,21 @@
 //reducer
-const initialState = { todoList: [], showDetails: null, details: {} };
+const initialState =[];
 
 export default (state=initialState, action)=> {
     const {payload, type}=action;
     switch (type) {
     case 'ADD':
       //  return state
-      return { ...state, todoList: [...state.todoList, payload] };
+      return  [...state, payload];
     case 'DELETE':
        // return state
-      return {...state, todoList: state.todoList.filter( item => item._id !== action.payload )};
+      return [...state.filter( item => item._id !== action.payload )];
     case 'TOGGLE':
         //return state
-      return { ...state, todoList: state.todoList.map( (item) => item._id === action.payload ? {...item, complete: !item.complete} : item ) };
+      return [...state.map( (item) => item._id === action.payload ? {...item, complete: !item.complete} : item ) ];
     case 'DETAILS':
         //return state
-      let item = state.todoList.filter( item => item._id === action.payload )[0] || {}
+      let item = state.filter( item => item._id === action.payload )[0] || []
     return { ...state, showDetails: !state.showDetails, details: item };
     default:
      return state;
@@ -25,19 +25,17 @@ export default (state=initialState, action)=> {
 //action
 // if the are issuses try removing the helper functions
 export const addItem = (data) => {
-    // data._id = uuid();
-    // data.complete = false;
-    return({type: 'ADD', payload:data});
+    return{type: 'ADD', payload:data};
   };
 
-  export const deleteItem = (id) => {
-    return({type:'DELETE', payload:id});
+  export const deleteItem = (data) => {
+    return{type:'DELETE', payload:data};
   }
 
-  export const toggleComplete = (id) => {
-    return({type: 'TOGGLE', payload:id});
+  export const toggleComplete = (data) => {
+    return{type: 'TOGGLE', payload:data};
   };
 
-  export const toggleDetails = id => {
-    return({type: 'DETAILS', payload:id});
+  export const toggleDetails = (data) => {
+    return{type: 'DETAILS', payload:data};
   };
